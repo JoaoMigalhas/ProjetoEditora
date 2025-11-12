@@ -4,6 +4,7 @@ public class MenuLivros {
     private Scanner teclado = new Scanner(System.in);
     private BancoLivros bancoLivros = new BancoLivros();
 
+    //metodo construtor
     public MenuLivros(){
         this.exibir();
     }
@@ -29,14 +30,12 @@ public class MenuLivros {
                 teclado.nextLine();
                 System.out.println("Digite o nome do livro: ");
                 livros.setNome(teclado.nextLine());
-                teclado.nextLine();
                 System.out.println("Digite o Isbn do livro: ");
                 livros.setIsbn(teclado.nextInt());
                 System.out.println("Digite o ano de publicação do livro: ");
                 livros.setAno(teclado.nextInt());
                 System.out.println("Digite uma observação sobre o livro: ");
                 livros.setObservacoes(teclado.nextLine());
-                teclado.nextLine();
 
                 bancoLivros.adicionar(livros);
 
@@ -72,9 +71,9 @@ public class MenuLivros {
                 if(localizado == null){
                     System.out.println("Livro não encontrado!");
                 } else {
-                    System.out.println(localizado.getCodigo() + 
-                    " - " + localizado.getNome() +
-                    " - " + localizado.getIsbn());
+                    System.out.println("Codigo do livro: " + localizado.getCodigo() + 
+                    " - Nome do livro: " + localizado.getNome() +
+                    " - ISBN do livro: " + localizado.getIsbn());
                 }
             }
         } while (opcao != 9);

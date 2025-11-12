@@ -18,10 +18,13 @@ public class MenuPrincipal {
 
             if (opcao == 1){
                 MenuEditoras menuEditoras = new MenuEditoras();
+                menuEditoras.exibir();
             } else if (opcao == 2){
+                //exibir com metodo construtor
                 MenuLivros menuLivros = new MenuLivros();
             } else if (opcao == 3){
-                MenuAutores menuAutores = new MenuAutores();
+                //exibir com classe estatica
+                MenuAutores.exibir();
             }
 
         } while (opcao != 9);

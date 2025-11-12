@@ -1,14 +1,11 @@
 import java.util.Scanner;
 
+//classe estatica
 public class MenuAutores {
-    private Scanner teclado = new Scanner(System.in);
-    private BancoAutores bancoAutores = new BancoAutores();
+    private static Scanner teclado = new Scanner(System.in);
+    private static BancoAutores bancoAutores = new BancoAutores();
 
-    public MenuAutores(){
-        this.exibir();
-    }
-
-    private void exibir(){
+    public static void exibir(){
         int opcao = 0;
 
         do {
@@ -64,9 +61,9 @@ public class MenuAutores {
                 if(localizado == null){
                     System.out.println("Autor(a) não encontrado!");
                 } else {
-                    System.out.println(localizado.getCodigo() + 
-                    " - " + localizado.getNome() +
-                    " - " + localizado.getPseudonimo());
+                    System.out.println("Codigo do autor(a): " + localizado.getCodigo() + 
+                    " - Nome do autor(a): " + localizado.getNome() +
+                    " - Pseudonimo do autor(a): " + localizado.getPseudonimo());
                 }
             }
 

@@ -4,11 +4,8 @@ public class MenuEditoras {
     private Scanner teclado = new Scanner(System.in);
     private BancoEditora bancoEditora = new BancoEditora();
 
-    public MenuEditoras(){
-        this.exibir();
-    }
 
-    private void exibir(){
+    public void exibir(){
         int opcao = 0;
 
         do {
@@ -62,9 +59,9 @@ public class MenuEditoras {
                 if(localizado == null){
                     System.out.println("Editora não encontrada!");
                 } else {
-                    System.out.println(localizado.getCodigo() + 
-                    " - " + localizado.getNome() +
-                    " - " + localizado.getSigla());
+                    System.out.println("Nome da editora: " + localizado.getCodigo() + 
+                    " - Nome da editora: " + localizado.getNome() +
+                    " - Sigla da editora: " + localizado.getSigla());
                 }
             }
 
