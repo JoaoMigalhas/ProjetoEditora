@@ -65,7 +65,7 @@ public class BancoLivros {
         }
     }
 
-     //metodo pesquisar
+     //metodo pesquisar pelo codigo
         public Livros pesquisar(int codigo){
             Livros localizado = null;
 
@@ -83,8 +83,37 @@ public class BancoLivros {
             }
         }
 
+    //metodo pesquisar pelo nome
+    public Livros pesquisar(String nome){
+        Livros localizado = null;
+
+        for (Livros item : lista){
+            if (item.getNome().equals(nome) == true){
+                localizado = item;
+                break;
+            }
+        }
+
+        if(localizado == null){
+            return null;
+        } else {
+            return localizado;
+        }
+    }
+
     //numero de livros
     public int getNumeroLivros(){
         return this.numeroLivros;
+    }
+    
+    //imprimir todos os livros
+    public void imprimirLivros(){
+        if (getNumeroLivros() == 0){
+            System.out.println("Nenhum livro cadastrado!");
+        } else {
+            for (Livros item : lista){
+            System.out.println(item.toString());
+            }
+        }
     }
 }

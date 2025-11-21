@@ -82,8 +82,37 @@
                 }
             }
 
+        //pesquisar pelo nome
+        public Editoras pesquisar(String nome){
+            Editoras localizado = null;
+
+            for (Editoras item : lista){
+                if (item.getNome().equals(nome)){
+                    localizado = item;
+                    break;
+                }
+            }
+
+            if(localizado == null){
+                return null;
+            } else {
+                return localizado;
+            }
+        }
+
         //numero de editoras
         public int getNumeroEditoras(){
             return this.numeroEditoras;
         }
+
+        //imprimir todas as editoras
+        public void imprimirEditoras(){
+            if (getNumeroEditoras() == 0){
+                System.out.println("Nenhuma editora cadastrada!");
+            } else {
+            for (Editoras item : lista){
+                System.out.println(item.toString());
+            }
+        }
     }
+}

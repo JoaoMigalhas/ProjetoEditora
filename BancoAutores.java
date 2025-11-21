@@ -81,9 +81,37 @@ public class BancoAutores {
                 return localizado;
             }
         }
+    //pesquisar pelo nome
+    public Autores pesquisar(String nome){
+        Autores localizado = null;
 
-    //numero de livros
+        for (Autores item : lista){
+            if (item.getNome().equals(nome)){
+                localizado = item;
+                break;
+            }
+        }
+
+        if(localizado == null){
+            return null;
+        } else {
+            return localizado;
+        }
+    }
+
+    //numero de autores
     public int getNumeroAutores(){
         return this.numeroAutores;
+    }
+
+    //imprimir todos os autores
+    public void imprimirAutores(){
+        if (getNumeroAutores() <= 0) {
+            System.out.println("Nenhum autor(a) cadastrado!");
+        } else {
+            for (Autores item : lista){
+            System.out.println(item.toString());
+            }
+        }
     }
 }

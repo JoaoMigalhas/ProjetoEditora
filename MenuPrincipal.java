@@ -17,6 +17,7 @@ public class MenuPrincipal {
             opcao = teclado.nextInt();
 
             if (opcao == 1){
+                //exibicao normal
                 MenuEditoras menuEditoras = new MenuEditoras();
                 menuEditoras.exibir();
             } else if (opcao == 2){

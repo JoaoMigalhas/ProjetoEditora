@@ -14,15 +14,17 @@ public class MenuEditoras {
             System.out.println("1. Adicionar");
             System.out.println("2. Alterar");
             System.out.println("3. Excluir");
-            System.out.println("4. Pesquisar");
+            System.out.println("4. Pesquisar(codigo)");
+            System.out.println("5. Pesquisar(nome)");
+            System.out.println("6. Imprimir todos");
+            System.out.println("7. Contador de registros");
             System.out.println("9. Sair");
             System.out.println("Digite a sua opção: ");
             opcao = teclado.nextInt();
 
             if (opcao == 1){
                 Editoras editoras = new Editoras();
-                System.out.println("Digite o código da editora: ");
-                editoras.setCodigo(teclado.nextInt());
+                System.out.println("Codigo gerado automaticamente da editora: " + editoras.getCodigo());
                 teclado.nextLine();
                 System.out.println("Digite o nome da editora: ");
                 editoras.setNome(teclado.nextLine());
@@ -37,11 +39,11 @@ public class MenuEditoras {
                 System.out.println("Digite o código da editora que deseja alterar: ");
                 editoras.setCodigo(teclado.nextInt());
                 teclado.nextLine();
-                System.out.println("Digite o nome da editora: ");
+                System.out.println("Digite o novo nome da editora: ");
                 editoras.setNome(teclado.nextLine());
-                System.out.println("Digite a sigla da editora: ");
+                System.out.println("Digite a nova sigla da editora: ");
                 editoras.setSigla(teclado.nextLine());
-                System.out.println("Digite uma observação sobre a editora: ");
+                System.out.println("Digite uma nova observação sobre a editora: ");
                 editoras.setObservacoes(teclado.nextLine());
 
                 bancoEditora.alterar(editoras);
@@ -59,10 +61,28 @@ public class MenuEditoras {
                 if(localizado == null){
                     System.out.println("Editora não encontrada!");
                 } else {
-                    System.out.println("Nome da editora: " + localizado.getCodigo() + 
+                    System.out.println("Codigo da editora: " + localizado.getCodigo() + 
                     " - Nome da editora: " + localizado.getNome() +
                     " - Sigla da editora: " + localizado.getSigla());
                 }
+            } else if (opcao == 5){
+                System.out.println("Digite o nome da editora que deseja pesquisar: ");
+                String nome = teclado.nextLine();
+                teclado.nextLine();
+                Editoras localizado = bancoEditora.pesquisar(nome);
+
+                if(localizado == null){
+                    System.out.println("Editora não encontrada!");
+                } else {
+                    System.out.println("Codigo da editora: " + localizado.getCodigo() + 
+                    " - Nome da editora: " + localizado.getNome() +
+                    " - Sigla da editora: " + localizado.getSigla());
+                }
+            } else if (opcao == 6){
+                System.out.println("Lista de editoras cadastradas:");
+                bancoEditora.imprimirEditoras();
+            } else if (opcao == 7){
+                System.out.println("Número de editoras cadastradas: " + bancoEditora.getNumeroEditoras());
             }
 
         } while (opcao != 9);
